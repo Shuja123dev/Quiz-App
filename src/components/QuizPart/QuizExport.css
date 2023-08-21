@@ -1,0 +1,99 @@
+.quizContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.quizBody {
+    width: 50%;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.optionsBox {
+    width: 80%;
+}
+
+.buttons {
+    display: flex;
+}
+
+.primary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 10px 30px;
+    padding-left: 35px;
+    color: #161616;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    margin: 10px;
+}
+
+.primary-btn span {
+    padding-top: 2px;
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-disable {
+    opacity: 50%;
+}
+
+.submit-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.submit-section a {
+    margin: 1rem 5rem;
+}
+
+.question-btns {
+    margin: 1rem 2rem;
+    display: flex;
+}
+
+.question-btns button {
+    margin: 5px;
+    background-color: #fff;
+    outline: none;
+    color: #d46f86;
+    border: 1px solid #d46f86;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.question-btns button:hover {
+    border-color: #d46f86 !important;
+    background-color: #d46f86 !important;
+    color: #fff;
+}
+
+.question-btns .active-btn {
+    border-color: #d46f86 !important;
+    background-color: #d46f86 !important;
+    color: #fff !important;
+}
+
+.attemped-question {
+    border-color: #489fff !important;
+    background-color: #489fff !important;
+    color: #000 !important;
+}

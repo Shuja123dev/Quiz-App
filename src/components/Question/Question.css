@@ -1,0 +1,17 @@
+.questions-box {
+    display: flex;
+    transition: 0.5s;
+}
+
+.question-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.question {
+    min-width: 100%;
+}
+
+.question h4 {
+    text-align: center;
+}

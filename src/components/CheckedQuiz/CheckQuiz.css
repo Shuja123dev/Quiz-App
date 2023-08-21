@@ -1,0 +1,70 @@
+.status-box {
+    width: 40%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #a0a0a0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    /* box-shadow: 0 0 8px 0px #c0c0c0; */
+}
+
+.status-box p {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.option-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wrong-option {
+    background-color: #ff3e3e !important;
+    color: black !important;
+    border-color: #ff3e3e !important;
+}
+
+.correct-option {
+    background-color: #489fff !important;
+    color: black !important;
+    border-color: #489fff !important;
+}
+
+.skipped-option {
+    background-color: #f6ee00 !important;
+    color: black !important;
+    border-color: #f6ee00 !important;
+}
+
+.optionRO {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.optionRO span {
+    margin-left: 10px;
+}
+
+.btn-outer {
+    border: 1.5px solid;
+}
+
+.question-btns div button {
+    margin: 0;
+}
+
+.question-btns div {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 8px;
+}

@@ -1,0 +1,17 @@
+.headerBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+
+.headerBox img {
+    cursor: pointer;
+    width: 130px;
+}
+
+.headerBox span {
+    color: #db8c9d;
+    font-size: 30px;
+    cursor: pointer;
+}

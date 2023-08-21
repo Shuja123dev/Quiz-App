@@ -1,0 +1,130 @@
+import React, { useContext, useEffect, useState } from 'react'
+import '../QuizPart/QuizExport.css'
+import './CheckQuiz.css'
+import { QuestionContext } from '../../context/QuestionData';
+import Button from '../Button';
+import { Link } from 'react-router-dom'
+import QuestionRO from './QuestionRO';
+
+const CheckedQuiz = () => {
+
+    const { questionsArray, questionIndex, setQuestionIndex } = useContext(QuestionContext);
+
+    const [disableBtn1, setDisableBtn1] = useState('')
+    const [disableBtn2, setDisableBtn2] = useState('');
+
+    const handleDisable = () => {
+        if (questionIndex === 0) {
+            setDisableBtn1('btn-disable')
+            setDisableBtn2('')
+        }
+
+        else if (questionIndex + 1 === questionsArray.length) {
+            setDisableBtn2('btn-disable')
+            setDisableBtn1('')
+        }
+        else {
+            setDisableBtn1('')
+            setDisableBtn2('')
+        }
+    }
+
+    useEffect(() => {
+        handleDisable();
+    }, [questionIndex])
+
+    const nextQuestion = () => {
+        if (questionIndex < questionsArray.length - 1) {
+            setQuestionIndex(questionIndex + 1);
+        }
+        // handleDisable();
+    }
+    const previousQuestion = () => {
+        if (questionIndex > 0) {
+            setQuestionIndex(questionIndex - 1);
+        }
+        // handleDisable();
+    }
+
+    const goToQestion = (index) => {
+        setQuestionIndex(index)
+    }
+
+    const renderSmallBtns = questionsArray.map((question, index) => {
+        let activeClass = '';
+        let checkClass = '';
+        let switchQues = ''
+
+        if (index === questionIndex) {
+            activeClass = 'active-btn';
+            switchQues = 'btn-outer';
+        }
+        question.options.map((option) => {
+            if (option.status === true) {
+                checkClass = ' attemped-question'
+            }
+        })
+
+        const optionStatus = question.options.map((option) => {
+            return option.status
+        })
+
+
+        const questionStatus = optionStatus.filter((option) => {
+            if (option === true)
+                return option;
+            return option;
+        })
+
+        question.options.map((option) => {
+            if (questionStatus[0] === true) {
+                if (option.status === true) {
+                    if (question.correctAnswer === option.value) {
+                        checkClass = ' correct-option';
+                    }
+                    else if (question.correctAnswer !== option.value) {
+                        checkClass = ' wrong-option'
+                    }
+                }
+            }
+            else {
+                checkClass = ' skipped-option'
+            }
+        })
+
+        return (
+            <div className={switchQues}>
+                <button key={index} className={activeClass + checkClass} onClick={() => goToQestion(index)}>{index + 1}</button>
+            </div>
+        )
+    })
+
+    return (
+        <div className='quizContainer'>
+            <p>{questionIndex + 1} / {questionsArray.length}</p>
+            <div className="quizBody">
+                <QuestionRO question={questionsArray} questionIndex={questionIndex} />
+                <div className="buttons">
+                    <Button disable={disableBtn1} handleClick={previousQuestion} icon='arrow_back_ios'>
+                        <span className="material-symbols-outlined">arrow_back_ios</span>
+                        Previous Question
+                    </Button>
+                    <Button disable={disableBtn2} handleClick={nextQuestion} icon='arrow_forward_ios'>
+                        Next Question
+                        <span className="material-symbols-outlined">arrow_forward_ios</span>
+                    </Button>
+                </div>
+            </div>
+            <div className="submit-section">
+                <div className="question-btns">
+                    {renderSmallBtns}
+                </div>
+                <Link to='/result'>
+                    <Button>Result</Button>
+                </Link>
+            </div>
+        </div>
+    )
+}
+
+export default CheckedQuiz
